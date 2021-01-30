@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inquiry App</title>
+	<style type="text/css">
+		*{
+			font-family: courier;
+			font-size: 30px;
+		}
+	</style>
+	<script type="text/javascript">
+		function validate(){
+			var n=document.getElementById('id_name')
+			var p=document.getElementById('id_phone')
+			var nr=/^[A-Za-z ]+$/
+
+			if (! nr.test(n.value)){
+				alert("Please enter Valid name")
+				n.value=""
+				n.foucs()
+				return False
+			}
+			if (! nr.test(n.length < 2)){
+				alert("Name should have atleast 2 letters")
+				n.value=""
+				n.foucs()
+				return False
+			}
+			if (p.value.length !=3){
+				alert("phone should have 3 numbers")
+				p.value=""
+				p.foucs()
+				return False	
+			}
+			return true
+
+		}
+	</script>
+</head>
+<body>
+	<CENTER>
+		<h1>Fill the Details</h1>
+		<FORM method="POST" onSubmit="return validate()">
+			{% csrf_token%}
+			<table border="2">
+				{{fm.as_table}}	
+			</table>
+			<br>
+			<br>
+			<input type="submit" >
+		</FORM>
+		<br>
+		<br>
+		{{msg}}
+	</CENTER>
+</body>
+</html>
