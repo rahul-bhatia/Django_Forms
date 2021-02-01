@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feedback Form</title>
+	<style type="text/css">
+		*{
+			font-family: courier;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<CENTER>
+		<FORM method="POST">
+			{% csrf_token%}
+			<h1>Welcome! Please provide feedback</h1>
+			<TABLE border="2">
+				{{fm.as_table}}
+			</TABLE>
+			<br>
+			<br>
+			<input type="submit" name="">
+		</FORM>
+		{{msg}}
+	</CENTER>
+</body>
+</html>
